@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button routerLink="/menu/menu2">
+              <ion-icon slot="icon-only" name="more"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+    <ion-title color="primary">AIRBUS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-label color="primary">
+        <ion-icon name="calendar"></ion-icon>
+      {{currentDate}}
+     </ion-label>
+
+  <ion-list>
+    <ion-card color="secondary">
+      <ion-card-header>
+      <ion-card-subtitle >CRO/COMP/19/05/011</ion-card-subtitle>
+      <ion-card-title >Cleaning</ion-card-title>
+     </ion-card-header>
+     <ion-item-sliding>
+       <ion-item>
+
+         <ion-button routerLink="/menu/third" color="secondary" size="small">Submit finding
+             <ion-icon slot="icon-only" name="camera"></ion-icon>
+         </ion-button>
+
+       </ion-item>
+     </ion-item-sliding>
+   </ion-card>
+   
+   <ion-card color="secondary">
+       <ion-card-header>
+       <ion-card-subtitle >Task Ref: 123456</ion-card-subtitle>
+       <ion-card-title >Carry out </ion-card-title>
+      </ion-card-header>
+      <ion-item-sliding>
+        <ion-item>
+    
+          <ion-button routerLink="/menu/third" color="secondary" size="small">Submit finding
+              <ion-icon slot="icon-only" name="camera"></ion-icon>
+          </ion-button>
+
+        </ion-item>
+      </ion-item-sliding>
+    </ion-card>  
+   
+   </ion-list>
+
+</ion-content>

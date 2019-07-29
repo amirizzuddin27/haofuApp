@@ -1,0 +1,104 @@
+<ion-header>
+    <img  src="../assets/icon/logo.png"/>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/menu/menu2">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar color="dark" showCancelButton cancelButtonText="Custom Cancel" placeholder="SEARCH JOBCARD"></ion-searchbar>
+
+  
+ <ion-label color="dark">
+    <ion-icon name="calendar"></ion-icon>
+  {{currentDate}}
+ </ion-label>
+     
+  
+
+ <div class="ion-padding">
+    
+    
+<ion-card class="background">
+    <ion-card-header>
+        <ion-card-title color="dark"><ion-item-divider color="dark">
+            <ion-label>
+                24 Job Card(s)
+            </ion-label>
+        </ion-item-divider>
+      </ion-card-title>
+      </ion-card-header>
+  <ion-card-content color="primary">
+   <ion-list color="primary">
+     <ion-card class="background">
+       <ion-card-header>
+       <ion-card-subtitle color="dark"><ion-icon name="clipboard"></ion-icon>SN3845/CRO/COMP/19/05/011 | 1 | 3 Task(s)</ion-card-subtitle>
+          <ion-badge color="success">1</ion-badge>
+          <ion-badge color="warning">1</ion-badge>
+          <ion-badge color="danger">1</ion-badge>
+          <ion-progress-bar color="secondary" value="0.33"></ion-progress-bar>
+       
+       <ion-card-title >Inspection</ion-card-title>
+       
+      </ion-card-header>
+      <ion-item-sliding>
+        <ion-item>
+
+          <ion-button size="small" (click)="presentToastWithOptions()">
+              <ion-icon slot="icon-only" name="camera"></ion-icon>
+          </ion-button>
+          <ion-button size = "small" (click)="presentToast()">
+              <ion-icon slot="icon-only" name="document"></ion-icon>
+          </ion-button> 
+          <ion-button fill="solid" color="secondary" size ="small" routerLink="/menu/second">
+              <ion-icon slot="icon-only" name="list-box"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-card>
+    
+    <ion-card class="background">
+        <ion-card-header>
+        <ion-card-subtitle color="dark"><ion-icon name="clipboard"></ion-icon>SN3845/CRO/COMP/19/05/011 | 1 | 3 Task(s)</ion-card-subtitle>
+        <ion-badge color="success">1</ion-badge>
+        <ion-badge color="warning">1</ion-badge>
+        <ion-badge color="danger">1</ion-badge>
+        <ion-progress-bar color="secondary" value="0.33"></ion-progress-bar>
+        <ion-card-title >Cleaning</ion-card-title>
+       </ion-card-header>
+       <ion-item-sliding>
+         <ion-item>
+        
+           <ion-button expand="full" size="small">
+               <ion-icon slot="icon-only" name="camera"></ion-icon>
+           </ion-button>
+           <ion-button expand="full" size = "small">
+               <ion-icon slot="icon-only" name="document"></ion-icon>
+           </ion-button> 
+           <ion-button expand="full" fill="solid" color="secondary" size ="small" routerLink="/menu/second">
+               <ion-icon slot="icon-only" name="list-box"></ion-icon>
+           </ion-button>
+         </ion-item>
+       </ion-item-sliding>
+     </ion-card>  
+    
+    </ion-list>
+  </ion-card-content>
+  </ion-card>
+<!--
+  <ion-list>
+    <ion-item *ngFor="let template of templates"> {{template.templateworksheetcode}}</ion-item>
+  </ion-list>
+  -->
+
+  </div>
+
+</ion-content>

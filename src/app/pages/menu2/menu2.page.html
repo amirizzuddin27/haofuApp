@@ -1,0 +1,46 @@
+<ion-header>
+        <ion-toolbar>
+          <ion-title>
+           <ion-button routerLink="menu/first" side="start">
+                  <ion-icon name="arrow-round-back"></ion-icon>
+              </ion-button> 
+              <ion-button >Technicien01
+                  <ion-icon color="secondary-shade" side="end" slot="icon-only" name="contact"></ion-icon> 
+                </ion-button>
+              
+            Menu</ion-title>
+
+        </ion-toolbar>
+        
+</ion-header>
+  
+      <ion-content>
+
+          <ion-button (click)="good()" expand="full" side="start">
+              Sign Out
+              <ion-icon slot="icon-only" name="power"></ion-icon>
+            </ion-button>
+            <ion-button expand="full" side="start" (click)="takePhoto()">
+              Take Picture
+              <ion-icon slot="icon-only" name="camera"></ion-icon>
+            </ion-button>
+            <ion-button expand="full" side="start">
+              Photo Editor
+              <ion-icon slot="icon-only" name="image"></ion-icon>
+            </ion-button>
+            <ion-button expand="full" side="start">
+              Remote Assisstance
+              <ion-icon slot="icon-only" name="call"></ion-icon>
+            </ion-button>
+            <ion-button expand="full" side="start">
+              Cognitive Assisstance
+              <ion-icon slot="icon-only" name="chatboxes"></ion-icon>
+            </ion-button>
+            <ion-button expand="full" side="start">
+              Mattermost Chat
+              <ion-icon slot="icon-only" name="chatboxes"></ion-icon>
+            </ion-button>
+
+            <p><img src="{{ myphoto }}""></p>
+      </ion-content>
+  

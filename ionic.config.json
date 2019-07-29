@@ -1,5 +1,7 @@
 {
   "name": "men",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

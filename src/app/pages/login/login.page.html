@@ -8,10 +8,14 @@
     <img expand="full" src="../assets/icon/logo.png"/>
   <ion-card color="light">
     <ion-card-content>
-      <ion-input color="dark">username :</ion-input>
-      <ion-input color="dark" type="password">password :</ion-input>
-      <ion-button routerLink="/menu/first"> Login </ion-button>
-      <ion-button>Forgotten password?</ion-button><!--A revoir-->
+      <ion-input color="dark" name="username" type="text" [(ngModel)]="username">username :</ion-input>
+      <ion-input color="dark" type="password" [(ngModel)]="userpassword">password :</ion-input>
+      <ion-button (click)=login()> Login </ion-button>
+      <ion-button >Forgotten password?</ion-button><!--A revoir-->
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+
+
+​

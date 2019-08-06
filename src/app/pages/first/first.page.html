@@ -27,7 +27,7 @@
  <div class="ion-padding">
     
     
-<ion-card class="background">
+<!-- <ion-card class="background">
     <ion-card-header>
         <ion-card-title color="dark"><ion-item-divider color="dark">
             <ion-label>
@@ -91,7 +91,33 @@
      </ion-card>  
     
     </ion-list>
-  </ion-card-content>
+   </ion-card-content>
+  </ion-card> -->
+  <ion-card *ngFor="let jobcard of jobcardtitle" >
+    <ion-card-header >
+      <ion-card-subtitle color="dark" ><ion-icon name="clipboard"></ion-icon>{{jobcard.partnumber}} | 1 | {{jobcard.task.length}} Task(s)</ion-card-subtitle>
+      <ion-badge color="success">1</ion-badge>
+      <ion-badge color="warning">1</ion-badge>
+      <ion-badge color="danger">1</ion-badge>
+      <ion-progress-bar color="secondary" value="0.33"></ion-progress-bar>
+      <ion-card-title >{{jobcard.jobcardtitle}}</ion-card-title>  
+      </ion-card-header>
+
+      <ion-item-sliding>
+        <ion-item>
+       
+          <ion-button expand="full" size="small">
+              <ion-icon slot="icon-only" name="camera"></ion-icon>
+          </ion-button>
+          <ion-button expand="full" size = "small">
+              <ion-icon slot="icon-only" name="document"></ion-icon>
+          </ion-button> 
+          <ion-button expand="full" fill="solid" color="secondary" size ="small" routerLink="/menu/second">
+              <ion-icon slot="icon-only" name="list-box"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-item-sliding>
+
   </ion-card>
 <!--
   <ion-list>

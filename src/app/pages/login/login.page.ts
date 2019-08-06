@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { LoginService } from '../../services/login.service';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+
+
+
 
 @Component({
   selector: 'app-login',
@@ -7,53 +15,70 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  user;
+  username;
+  userpassword;
+  loginForm: FormGroup;
+
+  constructor(private http: LoginService, private router: Router, public alertController: AlertController
+   ) { }
 
   ngOnInit() {
+    // this.loginForm = new FormGroup({
+    //   username: new FormControl('', [Validators.required]),
+    //   userpassword: new FormControl('', [Validators.required]),
+    // });
   }
 
-/*
-  ngOnInit() {
-    this.loginForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
-      userpassword: new FormControl('', [Validators.required]),
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: 'Access denied',
+      message: 'Wrong username or password.',
+      buttons: ['OK']
     });
+
+    await alert.present();
   }
 
 
-login():void {
-    // start loading
-    if(this.loginForm.status == 'VALID'){
-      this.spinner.show();
 
-      // call getUser method in HttpService
-      console.log(this.loginForm.value.username)
-      this.http.getUser(this.loginForm.value.username, this.loginForm.value.userpassword).subscribe(
+login(): void {
+  console.log('masuk');
+  console.log(this.username);
+  console.log(this.userpassword);
+    // start loading
+    // if (this.loginForm.status == 'VALID') {
+
+
+    //   // call getUser method in HttpService
+    //   console.log(this.loginForm.value.username);
+  this.http.getUser(this.username,this.userpassword).subscribe(
         response => {
-          this.user = response
+          this.user = response;
           console.log(this.user)
-		  
-		  //set user response in local storage for futher usage
-          localStorage.setItem('user', JSON.stringify(this.user))
+          
+		  // // tslint:disable-next-line: indent
+		  // // set user response in local storage for futher usage
+      //     localStorage.setItem('user', JSON.stringify(this.user));
 
           // redirect page based on User_Role
-          if (response.employee.employeejobtitle == 'Technician') {
-            this.router.navigateByUrl('/smart-jobcard')
-          }else if(response.employee.employeejobtitle == 'Engineer'){
-            this.router.navigateByUrl('/workshop-worksheet')
-          }
-          else{
-            this.router.navigateByUrl('/dashboard')
+          if (this.user.employee.employeejobtitle == 'Technician') {
+            this.router.navigateByUrl('/menu/first');
+          } else {
+            this.router.navigateByUrl('/menu/sup');
           }
 
         }, error => {
-		//if error it goes here
+		// tslint:disable-next-line: indent
+    // if error it goes here
+    this.presentAlert();
         }
-      )
+      );
     }
 
   }
 
 
-*/
-}
+
+

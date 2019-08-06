@@ -8,15 +8,39 @@ import { Observable, throwError } from 'rxjs';
 })
 export class LoginService {
 
+  private baseURL = "https://haofu.airbusdigital.com/api/hof/mro"
+
   constructor(private http: HttpClient) { }
 
-  private _url: string = "https://haofu.airbusdigital.com/api/hof/mro/finding";
+  // tslint:disable-next-line: variable-name
 
-  getTemplates(): Observable<any>{
-    return this.http.get(this._url)
-    .pipe(
-      map( response => {return response}),
-      catchError( (err, caught) => { return throwError(err)})
-    );
+  getUser(username, userpassword) : Observable<any> {
+    console.log(username+" "+userpassword)
+    return this.http.get(this.baseURL+'/user/login?username='+username+'&userpassword='+userpassword)
+      .pipe(
+        map( response => {
+          console.log(response)
+          return response
+        }),
+        catchError((err, caught) => {
+          console.log(err)
+          return throwError(err);
+        })
+      )
   }
+
+  getJobcard() : Observable<any> {
+    return this.http.get(this.baseURL+'/jobcard')
+      .pipe(
+        map( response => {
+          console.log(response)
+          return response;
+        }),
+        catchError((err, caught) => {
+          console.log(err)
+          return throwError(err);
+        })
+      )
+  }
+
 }

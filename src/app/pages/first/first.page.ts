@@ -17,27 +17,30 @@ export class FirstPage implements OnInit {
   currentDate;
   formattedDate;
 
-  constructor(private _templatesService: LoginService, private menuCtrl: MenuController, public navCtrl: NavController, public toastController: ToastController) {
+  jobcardtitle;
+  worksheetcode;
 
-// tslint:disable-next-line: only-arrow-functions
-   // setInterval(function() { console.log(true); }, 3000);
+  constructor( private menuCtrl: MenuController, public navCtrl: NavController, public toastController: ToastController,
+               private http: LoginService) {
 
   }
 
   ngOnInit() {
-
-    this._templatesService.getTemplates()
-    .subscribe(
-      response => { console.log(response),
-        this.templates = response['Result']
-      }
-    );
-    
-
     this.currentDate = moment().format('MMMM Do YYYY, h:mm:ss a');
+
+    this.title();
   }
 
-
+  title() {
+    this.http.getJobcard()
+    .subscribe(
+      response => {
+        this.jobcardtitle = response.Result;
+        console.log(this.jobcardtitle);
+        this.worksheetcode = response.Result;
+        console.log(this.worksheetcode);
+      });
+  }
 
   more() {
     alert('Ok');
